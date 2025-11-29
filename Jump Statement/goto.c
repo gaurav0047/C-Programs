@@ -3,7 +3,7 @@
 int main(void)
 {
   printf("Line-1\n");
-  goto TEST;
+  goto TEST; // Control goes to the label TEST
   printf("Line-2\n");
   printf("Line-3\n");
 TEST:
