@@ -1,17 +1,18 @@
 #include <stdio.h>
-int main()
+int main(void)
 {
-  int n, i, j, flag = 1;
-  printf("Enter order of matrix: ");
+  int n, i, j, sum = 0;
+
+  printf("Enter the order of matrix:");
   scanf("%d", &n);
 
-  int a[n][n];
+  int arr[n][n];
 
   for (i = 0; i < n; i++)
     for (j = 0; j < n; j++)
     {
       printf("\nEnter elements at [%d][%d]::", i, j);
-      scanf("%d", &a[i][j]);
+      scanf("%d", &arr[i][j]);
     }
 
   printf("\n         ::MATRIX::\n");
@@ -19,20 +20,14 @@ int main()
   {
     for (j = 0; j < n; ++j)
     {
-      printf("%d \t", a[i][j]);
+      printf("%d \t", arr[i][j]);
     }
     printf("\n\n");
   }
 
   for (i = 0; i < n; i++)
-    for (j = 0; j < n; j++)
-      if (a[i][j] != a[j][i])
-        flag = 0;
+    sum += arr[i][i];
 
-  if (flag)
-    printf("Matrix is Symmetric");
-  else
-    printf("Matrix is NOT Symmetric");
-
+  printf("Sum of diagonal = %d", sum);
   return 0;
 }

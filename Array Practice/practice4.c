@@ -1,17 +1,18 @@
 #include <stdio.h>
-int main()
+int main(void)
 {
-  int n, i, j, flag = 1;
-  printf("Enter order of matrix: ");
+  int n, i, j, flag;
+
+  printf("Enter the order of matrix:");
   scanf("%d", &n);
 
-  int a[n][n];
+  int arr[n][n];
 
   for (i = 0; i < n; i++)
     for (j = 0; j < n; j++)
     {
       printf("\nEnter elements at [%d][%d]::", i, j);
-      scanf("%d", &a[i][j]);
+      scanf("%d", &arr[i][j]);
     }
 
   printf("\n         ::MATRIX::\n");
@@ -19,20 +20,20 @@ int main()
   {
     for (j = 0; j < n; ++j)
     {
-      printf("%d \t", a[i][j]);
+      printf("%d \t", arr[i][j]);
     }
     printf("\n\n");
   }
 
   for (i = 0; i < n; i++)
     for (j = 0; j < n; j++)
-      if (a[i][j] != a[j][i])
+      if ((i == j && arr[i][j] != 1) || (i != j && arr[i][j] != 0))
         flag = 0;
 
   if (flag)
-    printf("Matrix is Symmetric");
+    printf("Identity Matrix");
   else
-    printf("Matrix is NOT Symmetric");
+    printf("Not Identity Matrix");
 
   return 0;
 }

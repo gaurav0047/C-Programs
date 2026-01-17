@@ -1,8 +1,8 @@
 #include <stdio.h>
 int main()
 {
-  int n, i, j, flag = 1;
-  printf("Enter order of matrix: ");
+  int n, i, j;
+  printf("Enter order: ");
   scanf("%d", &n);
 
   int a[n][n];
@@ -24,15 +24,20 @@ int main()
     printf("\n\n");
   }
 
+  printf("Upper Triangle:\n");
   for (i = 0; i < n; i++)
+  {
     for (j = 0; j < n; j++)
-      if (a[i][j] != a[j][i])
-        flag = 0;
+      printf(i <= j ? "%d \t" : "0 \t", a[i][j]);
+    printf("\n");
+  }
 
-  if (flag)
-    printf("Matrix is Symmetric");
-  else
-    printf("Matrix is NOT Symmetric");
-
+  printf("Lower Triangle:\n");
+  for (i = 0; i < n; i++)
+  {
+    for (j = 0; j < n; j++)
+      printf(i >= j ? "%d \t" : "0 \t", a[i][j]);
+    printf("\n");
+  }
   return 0;
 }
